@@ -1,18 +1,25 @@
 <template>
-  <div id="app">
-    <ProductList />
-  </div>
+    <div id="app">
+        <NavBar />
+        <router-view />
+        <Footer />
+    </div>
 </template>
 
-<script>
-import ProductList from './components/ProductList.vue';
+<script lang="ts">
+import NavBar from './components/NavBar.vue';
+import Footer from './components/Footer.vue';
+
 
 export default {
-  components: {
-    ProductList,
-  },
+    name: 'App',
+    components: {
+        NavBar,
+        Footer
+    }
 };
 </script>
 
 <style scoped>
+/* Global styles */
 </style>
