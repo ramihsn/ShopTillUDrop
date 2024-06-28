@@ -1,11 +1,11 @@
 <template>
     <nav class="navbar">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#categories">Categories</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/shop">Shop</router-link></li>
+            <li><router-link to="/categories">Categories</router-link></li>
+            <li><router-link to="/about">About Us</router-link></li>
+            <li><router-link to="/contact">Contact Us</router-link></li>
         </ul>
         <div class="auth-buttons">
             <button>Login</button>

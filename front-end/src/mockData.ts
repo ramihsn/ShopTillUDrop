@@ -1,4 +1,29 @@
-export const promotions = [
+import type { Product } from "./types";
+
+
+export function multiplyItems<T extends { id: number; name?: string; description?: string }>(items: T[], factor: number): T[] {
+    const multipliedItems: any[] = [];
+    for (let i = 1; i <= factor; i++) {
+        for (const item of items) {
+            if (item.name === undefined) {
+                multipliedItems.push({
+                    ...item,
+                    id: item.id + i * items.length, // Ensure unique IDs
+                    description: `${item.description} (Copy ${i})` // Optionally, make the names unique
+                });
+            } else {
+                multipliedItems.push({
+                    ...item,
+                    id: item.id + i * items.length, // Ensure unique IDs
+                    name: `${item.name} (Copy ${i})` // Optionally, make the names unique
+                });
+            }
+        }
+    }
+    return multipliedItems;
+}
+
+const _promotions = [
     {
         id: 1,
         title: "Summer Sale",
@@ -19,7 +44,7 @@ export const promotions = [
     },
 ];
 
-export const categories = [
+const _categories = [
     {
         id: 1,
         name: "Electronics",
@@ -37,3 +62,31 @@ export const categories = [
     }
     // Add more categories as needed
 ];
+
+const _products: Product[] = [
+    {
+        id: 1,
+        name: 'Noise Cancelling Headphones',
+        description: 'Experience immersive sound with our top-of-the-line noise cancelling headphones.',
+        price: 199.99,
+        imageUrl: 'https://cdn.specialneedstoys.com/products/images/xl/5BZEM.jpg'
+    },
+    {
+        id: 2,
+        name: 'Smartwatch Series 6',
+        description: 'Stay connected and track your health with the latest Smartwatch Series 6.',
+        price: 399.99,
+        imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9'
+    },
+    {
+        id: 3,
+        name: '4K Ultra HD Smart TV',
+        description: 'Enjoy stunning visuals with our 55-inch 4K Ultra HD Smart TV, perfect for your living room.',
+        price: 599.99,
+        imageUrl: 'https://res.cloudinary.com/sharp-consumer-eu/image/fetch/w_3000,f_auto/https://s3.infra.brandquad.io/accounts-media/SHRP/DAM/origin/de0d3686-4766-11ee-8cfb-8ee861fd9236.jpg'
+    },
+];
+
+export const promotions = multiplyItems(_promotions, 5);
+export const categories = multiplyItems(_categories, 5);
+export const products = multiplyItems(_products, 5);

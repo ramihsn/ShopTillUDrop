@@ -7,6 +7,11 @@ const routes = [
         name: 'home',
         component: LandingPage
     },
+    {
+        path: '/shop',
+        name: 'shop',
+        component: () => import('../views/ShopPage.vue')
+    }
     // Add more routes as needed
 ];
 

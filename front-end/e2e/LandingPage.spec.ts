@@ -6,7 +6,7 @@ test('landing page displays promotions and categories', async ({ page }) => {
 
     // Check promotions
     for (const promo of promotions) {
-        const promoElement = page.locator(`.promotion:has-text("${promo.title}")`);
+        const promoElement = page.locator(`.promotion:has-text("${promo.title}"):has-text("${promo.description}")`);
         await expect(promoElement).toBeVisible();
     }
 
