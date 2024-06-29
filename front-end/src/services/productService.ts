@@ -1,4 +1,4 @@
-import { products } from '../mocks/products';
+import { products } from '@/mockData';
 
 export const fetchProducts = () => {
   return new Promise((resolve) => {

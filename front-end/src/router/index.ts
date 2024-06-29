@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 import LandingPage from '../views/LandingPage.vue';
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
         name: 'home',
@@ -36,3 +36,4 @@ const router = createRouter({
 });
 
 export default router;
+export { routes };
