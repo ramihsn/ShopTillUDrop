@@ -17,6 +17,11 @@ const routes = [
         name: 'categories',
         component: () => import('../views/CategoriesPage.vue')
     },
+    {
+        path: '/about',
+        name: 'about',
+        component: () => import('../views/AboutPage.vue')
+    },
     // Add more routes as needed
 ];
 
