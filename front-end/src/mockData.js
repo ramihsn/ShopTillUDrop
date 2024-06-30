@@ -1,8 +1,21 @@
-import type { Product } from "./types";
+// import { Product } from "./types";
+/**
+ * @typedef {Object} Product
+ * @property {number} id
+ * @property {string} name
+ * @property {string} description
+ * @property {number} price
+ * @property {string} imageUrl
+ */
 
-
-export function multiplyItems<T extends { id: number; name?: string; description?: string }>(items: T[], factor: number): T[] {
-    const multipliedItems: any[] = [];
+/**
+ * @template T
+ * @param {T[]} items
+ * @param {number} factor
+ * @returns {T[]}
+ */
+export function multiplyItems(items, factor) {
+    const multipliedItems = [];
     for (let i = 1; i <= factor; i++) {
         for (const item of items) {
             if (item.name === undefined) {
@@ -63,7 +76,8 @@ const _categories = [
     // Add more categories as needed
 ];
 
-const _products: Product[] = [
+/** @type {Product[]} */
+const _products = [
     {
         id: 1,
         name: 'Noise Cancelling Headphones',

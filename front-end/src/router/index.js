@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import LandingPage from '../views/LandingPage.vue';
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
     {
         path: '/',
         name: 'home',

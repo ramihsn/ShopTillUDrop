@@ -15,10 +15,11 @@
     </div>
 </template>
 
-<script scoped>
+<script>
 import { fetchProducts } from '../services/productService';
 
 export default {
+    name: 'ProductList',
     data() {
         return {
             products: [],

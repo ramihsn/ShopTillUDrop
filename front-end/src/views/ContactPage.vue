@@ -17,11 +17,12 @@
             </div>
             <button type="submit" class="submit-button">Submit</button>
         </form>
+        <div v-if="success" class="success-message">Your message has been sent successfully!</div>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive } from 'vue';
+<script>
+import { defineComponent, reactive, ref } from 'vue';
 
 export default defineComponent({
     name: 'ContactPage',
@@ -32,13 +33,16 @@ export default defineComponent({
             message: ''
         });
 
+        const success = ref(false);
+
         const submitForm = () => {
             console.log('Form submitted:', form);
-            alert('Form submitted successfully!');
+            success.value = true;
         };
 
         return {
             form,
+            success,
             submitForm
         };
     }
@@ -46,6 +50,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.success-message {
+    color: green;
+    font-weight: bold;
+}
 .contact-page {
     max-width: 600px;
     margin: 0 auto;

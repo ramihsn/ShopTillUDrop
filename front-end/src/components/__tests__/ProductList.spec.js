@@ -1,12 +1,12 @@
-import { describe, it, expect, vi } from 'vitest'
-import { mount } from '@vue/test-utils'
-import ProductList from '../ProductList.vue'
-import { fetchProducts } from '../../services/productService'
+import { describe, it, expect, vi } from 'vitest';
+import { mount } from '@vue/test-utils';
+import ProductList from '../ProductList.vue';
+import { fetchProducts } from '../../services/productService';
 
 // Mock the fetchProducts service
 vi.mock('../../services/productService', () => ({
     fetchProducts: vi.fn(),
-}))
+}));
 
 describe('ProductList', () => {
     it('renders product list correctly', async () => {
@@ -26,43 +26,43 @@ describe('ProductList', () => {
                 price: 200,
                 imageUrl: '/images/product2.jpg',
             },
-        ]
+        ];
 
         // Mock the fetchProducts function to return mock data
-        fetchProducts.mockResolvedValue(mockProducts)
+        fetchProducts.mockResolvedValue(mockProducts);
 
         // Act
-        const wrapper = mount(ProductList)
+        const wrapper = mount(ProductList);
 
         // Wait for the component to re-render after fetching data
-        await flushPromises()
+        await flushPromises();
 
         // Assert
-        const products = wrapper.findAll('.product')
-        expect(products.length).toBe(mockProducts.length)
+        const products = wrapper.findAll('.product');
+        expect(products.length).toBe(mockProducts.length);
 
         // Check that each product is rendered correctly
         products.forEach((productWrapper, index) => {
-            const product = mockProducts[index]
-            expect(productWrapper.text()).toContain(product.name)
-            expect(productWrapper.text()).toContain(product.description)
-            expect(productWrapper.text()).toContain(`$${product.price}`)
-        })
-    })
+            const product = mockProducts[index];
+            expect(productWrapper.text()).toContain(product.name);
+            expect(productWrapper.text()).toContain(product.description);
+            expect(productWrapper.text()).toContain(`$${product.price}`);
+        });
+    });
 
     it('displays loading state initially', () => {
         // Arrange
-        fetchProducts.mockResolvedValue([])
+        fetchProducts.mockResolvedValue([]);
 
         // Act
-        const wrapper = mount(ProductList)
+        const wrapper = mount(ProductList);
 
         // Assert
-        expect(wrapper.text()).toContain('Loading...')
-    })
-})
+        expect(wrapper.text()).toContain('Loading...');
+    });
+});
 
 // Utility function to wait for all promises to resolve
 async function flushPromises() {
-    return new Promise(setImmediate)
+    return new Promise(setImmediate);
 }

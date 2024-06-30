@@ -10,7 +10,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { products } from '../mockData';
 import type { Product } from '../types';
