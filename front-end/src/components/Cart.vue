@@ -1,4 +1,3 @@
-// src/components/Cart.vue
 <template>
     <div>
         <h2>Cart</h2>

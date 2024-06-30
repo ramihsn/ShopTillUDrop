@@ -1,11 +1,9 @@
-// src/stores/index.ts
 import { defineStore } from 'pinia'
-import type { Product } from '@/types'
 import { fetchProducts } from '@/services/productService'
 
 export const useProductStore = defineStore('product', {
   state: () => ({
-    products: [] as Product[],
+    products: [],
     loading: true
   }),
   actions: {

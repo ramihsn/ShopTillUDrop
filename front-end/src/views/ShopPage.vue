@@ -13,7 +13,6 @@
 <script>
 import { defineComponent } from 'vue';
 import { products } from '../mockData';
-import type { Product } from '../types';
 
 export default defineComponent({
     name: 'ShopPage',
@@ -23,7 +22,7 @@ export default defineComponent({
         };
     },
     methods: {
-        addToCart(product: Product) {
+        addToCart(product) {
             // Add logic to add the product to the cart
             console.log('Adding to cart:', product);
         }
